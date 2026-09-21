@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Open Spotify Links in App",
+  "version": "1.0.0",
+  "description": "Redirects open.spotify.com links to the Spotify desktop app",
+  "permissions": ["tabs", "webRequest", "webRequestBlocking", "*://open.spotify.com/*"],
+  "background": {
+    "scripts": ["dist/background.js"]
+  },
+  "icons": {
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png"
+  },
+  "web_accessible_resources": ["redirect.html", "redirect.js"],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "spotify-redirect@local",
+      "strict_min_version": "57.0"
+    }
+  }
+}
