@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "esbuild src/background.ts --bundle --outfile=dist/background.js --target=firefox57 --format=iife",
-    "package": "npm run build && web-ext build --source-dir . --artifacts-dir artifacts --overwrite-dest"
+    "build": "esbuild src/background.ts --bundle --outfile=dist/background.js --target=firefox57 --format=iife && esbuild src/redirect.ts --bundle --outfile=redirect.js --target=firefox57 --format=iife && cp src/redirect.html redirect.html",
+    "package": "npm run build && web-ext build --source-dir . --artifacts-dir artifacts --overwrite-dest --filename spotify-redirect.xpi --ignore-files src node_modules artifacts tsconfig.json 'package*.json' icons/icon.svg"
   },
   "devDependencies": {
     "esbuild": "^0.25.0",
